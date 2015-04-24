@@ -1,0 +1,72 @@
+PROBLEM STATEMENT
+In her favorite Math class, Little Bonnie learned that some non-negative integers can be represented as the sum of the squares of two non-negative integers. For example, 13 can be represented as 2*2 + 3*3.
+
+
+Bonnie later discovered that some of those integers can even be represented by more than one possible pair.  For example, 25 can be represented as 0*0 + 5*5, and it can also be represented as 3*3 + 4*4.
+
+
+She has defined the score of an integer as the number of different ways it can be represented as the sum of the squares of two non-negative integers.  The order of the two squared integers is not important.  In other words, a*a + b*b is equivalent to b*b + a*a, so they should only count once in the score.  So, 25 has a score of 2, 2 has a score of 1 (2 = 1*1 + 1*1), 1 also has a score of 1 (1 = 0*0 + 1*1) and 3 has a score of 0.
+
+
+Bonnie needs your help in solving the following problem. She wants to find the integer between lowerBound and upperBound, inclusive, with the maximum score.  If multiple integers have the same highest score, return the largest among them.
+
+DEFINITION
+Class:MaximumScoredNumber
+Method:getNumber
+Parameters:int, int
+Returns:int
+Method signature:int getNumber(int lowerBound, int upperBound)
+
+
+CONSTRAINTS
+-upperBound will be between 0 and 10000, inclusive.
+-lowerBound will be between 0 and upperBound, inclusive.
+
+
+EXAMPLES
+
+0)
+0
+2
+
+Returns: 2
+
+In the range 0 to 2, the numbers have the following scores:
+
+0 has a score of 1: 0 = 0*0 + 0*0 
+1 has a score of 1: 1 = 0*0 + 1*1 
+2 has a score of 1: 2 = 1*1 + 1*1 
+
+All of them have the same score. Number 2 is the biggest so it is returned.
+
+1)
+0
+30
+
+Returns: 25
+
+25 is the only number between 0 and 30 having a score of 2.
+
+2)
+0
+0
+
+Returns: 0
+
+
+
+3)
+5
+99
+
+Returns: 85
+
+
+
+4)
+0
+10000
+
+Returns: 9425
+
+
