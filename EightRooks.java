@@ -8,41 +8,35 @@ public class EightRooks
 {
 	public String isCorrect(String[] board)
 	{
-		int n = board.length;
-		int m = board[0].length();
-		
-		for (int i = 0; i < n; ++i)
+		int r = board.length;
+		int c = board[0].length();
+		boolean [] rows = new boolean[r];
+		boolean [] cols = new boolean[c];
+		int cnt = 0;
+		for (int i = 0; i < r; ++i)
 		{
-			int cnt = 0;
-			for (int j = 0; j < m; ++j)
+			for (int j = 0; j < c; ++j)
 			{
 				if (board[i].charAt(j) == 'R')
 				{
-					cnt++;
+					if (!rows[i]  && !cols[j])
+					{
+						rows[i] = true;
+						cols[j] = true;
+						cnt++;
+					}
+					else
+					{
+						System.out.println(i + " " + j);
+						return "Incorrect";
+					}
 				}
 			}
-			if (cnt != 1)
-			{
-				return "Incorrect";
-			}
 		}
-		for (int i =0; i < n; ++i)
-		{
-			int cnt = 0;
-			
-			for (int j = 0; j < m; ++j)
-			{
-				if (board[j].charAt(i) == 'R')
-				{
-					cnt++;
-				}
-			}
-			if (cnt != 1)
-			{
-				return "Incorrect";
-			}
-		}
-		return "Correct";
+		if (cnt == 8)
+			return "Correct";
+		else
+			return "Incorrect";
 	}
 	
 	public static void main(String[] args)
